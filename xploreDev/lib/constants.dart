@@ -3,6 +3,7 @@ import './size_config.dart';
 
 const kPrimaryColor = Color.fromARGB(0xFF, 78, 166, 133);
 const kPrimaryLightColor = Color.fromARGB(0xFF, 87, 184, 148);
+const kGrey = Color(0xFF757575);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -30,17 +31,8 @@ const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
-
-final otpInputDecoration = InputDecoration(
-  contentPadding:
-      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
-  border: outlineInputBorder(),
-  focusedBorder: outlineInputBorder(),
-  enabledBorder: outlineInputBorder(),
-);
+const String kNamelNullError = "Please Enter the user name ";
+const String kDOBNullError = "Please Enter your DOB ";
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(

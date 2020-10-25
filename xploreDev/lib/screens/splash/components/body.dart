@@ -16,7 +16,7 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Tokoto, Let’s shop!",
+      "text": "Welcome to Explore, Let’s Adventure is begin!",
       "image": "assets/images/login.png"
     },
     {
@@ -68,7 +68,7 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 3),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Continue..",
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },

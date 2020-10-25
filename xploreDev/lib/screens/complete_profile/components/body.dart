@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
                   "Complete your details or continue  \nwith social media",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.06),
+                SizedBox(height: SizeConfig.screenHeight * 0.03),
                 CompleteProfileForm(),
                 SizedBox(height: getProportionateScreenHeight(30)),
                 Text(
