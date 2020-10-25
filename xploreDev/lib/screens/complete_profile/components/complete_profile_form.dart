@@ -21,7 +21,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
-        helpText: "ASDas",
+        initialDate: selectedDate,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
     if (picked != null && picked != selectedDate)
@@ -185,68 +185,46 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   }
 
   Widget buildDOBField() {
-    TextEditingController dateCtl = TextEditingController();
-    TextFormField(
-      controller: dateCtl,
-      decoration: InputDecoration(
-        labelText: "Date of birth",
-        hintText: "Ex. Insert your dob",
+    String doBText = "Enter your DOB";
+    print("${selectedDate.toLocal()}");
+    print(DateTime.now().toLocal());
+    if ("$selectedDate" == DateTime.now()) {
+      print("$selectedDate");
+      print(DateTime.now());
+      doBText = "${selectedDate.toLocal()}".split(' ')[0];
+    }
+    return OutlineButton(
+      padding: EdgeInsets.only(top: 18, left: 45, right: 20, bottom: 18),
+      onPressed: () => _selectDate(context),
+      child: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.centerRight,
+            child: Icon(
+              Icons.calendar_today,
+              color: kTextColor,
+              size: 20,
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              doBText,
+              style: TextStyle(
+                fontSize: 16,
+                //fontWeight: FontWeight.bold,
+                color: kTextColor,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          )
+        ],
       ),
-      onTap: () async {
-        DateTime date = DateTime(1900);
-        FocusScope.of(context).requestFocus(new FocusNode());
-
-        date = await showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(1900),
-            lastDate: DateTime(2100));
-
-        dateCtl.text = date.toIso8601String();
-      },
+      borderSide: new BorderSide(color: kGrey),
+      shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(50.0),
+      ),
     );
-
-    // String doBText = "Enter your DOB";
-    // print("${selectedDate.toLocal()}");
-    // print(DateTime.now().toLocal());
-    // DateTime dd = DateTime.now();
-    // if ("$selectedDate" == dd) {
-    //   print("$selectedDate");
-    //   print(DateTime.now());
-    //   doBText = "${selectedDate.toLocal()}".split(' ')[0];
-    // }
-    // return OutlineButton(
-    //   padding: EdgeInsets.only(top: 18, left: 45, right: 20, bottom: 18),
-    //   onPressed: () => _selectDate(context),
-    //   child: Stack(
-    //     children: <Widget>[
-    //       Align(
-    //         alignment: Alignment.centerRight,
-    //         child: Icon(
-    //           Icons.calendar_today,
-    //           color: kTextColor,
-    //           size: 20,
-    //         ),
-    //       ),
-    //       Align(
-    //         alignment: Alignment.centerLeft,
-    //         child: Text(
-    //           doBText,
-    //           style: TextStyle(
-    //             fontSize: 16,
-    //             //fontWeight: FontWeight.bold,
-    //             color: kTextColor,
-    //           ),
-    //           textAlign: TextAlign.center,
-    //         ),
-    //       )
-    //     ],
-    //   ),
-    //   borderSide: new BorderSide(color: kGrey),
-    //   shape: new RoundedRectangleBorder(
-    //     borderRadius: new BorderRadius.circular(50.0),
-    //   ),
-    // );
   }
 }
 
