@@ -17,6 +17,7 @@ class CompleteProfileForm extends StatefulWidget {
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   DateTime selectedDate = DateTime.now();
+  DateTime selectedDateInit = DateTime.now();
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
@@ -185,14 +186,14 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   }
 
   Widget buildDOBField() {
-    String doBText = "Enter your DOB";
-    print("${selectedDate.toLocal()}");
-    print(DateTime.now().toLocal());
-    if ("$selectedDate" == DateTime.now()) {
-      print("$selectedDate");
-      print(DateTime.now());
+    String doBText = "${selectedDate.toLocal()}".split(' ')[0];
+    String doBTextCheck = "${selectedDateInit.toLocal()}".split(' ')[0];
+    if (doBText != doBTextCheck) {
       doBText = "${selectedDate.toLocal()}".split(' ')[0];
+    } else {
+      doBText = "Enter Date of birth";
     }
+
     return OutlineButton(
       padding: EdgeInsets.only(top: 18, left: 45, right: 20, bottom: 18),
       onPressed: () => _selectDate(context),
