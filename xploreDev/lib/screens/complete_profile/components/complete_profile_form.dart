@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -18,13 +20,15 @@ class CompleteProfileForm extends StatefulWidget {
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   DateTime selectedDate = DateTime.now();
   DateTime selectedDateInit = DateTime.now();
+  String errorMsg = "";
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2015, 8),
+      lastDate: DateTime(2101),
+    );
     if (picked != null && picked != selectedDate)
       setState(() {
         selectedDate = picked;
@@ -57,7 +61,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
-  String firstName;
+  String userName;
   DateTime dob;
   void addError({String error}) {
     if (!errors.contains(error))
@@ -75,6 +79,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   @override
   Widget build(BuildContext context) {
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+
+    if (arguments != null) print(arguments);
+
     return Form(
       key: _formKey,
       child: Column(
@@ -83,7 +91,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             children: [
               CircleAvatar(
                 radius: 60,
-                backgroundColor: Colors.grey[200],
+                backgroundColor: Colors.white,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -136,7 +144,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               ],
             ),
           ),
-          SizedBox(height: getProportionateScreenHeight(10)),
+          SizedBox(height: getProportionateScreenHeight(20)),
           buildFirstNameFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildDOBField(),
@@ -144,8 +152,64 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "continue",
-            press: () {
+            press: () async {
               if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+                try {
+                  var userCredential = await auth.FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: arguments['email'],
+                          password: arguments['password']);
+
+                  // FirebaseUser
+                  var newUser = userCredential.user;
+
+                  /// Add the first and last name to the FirebaseUser
+                  String newDisplayName = '$userName';
+                  await newUser
+                      .updateProfile(displayName: newDisplayName)
+                      .catchError((error) => print(error));
+
+                  final databaseReference = FirebaseFirestore.instance;
+                  databaseReference.collection('users').doc().set({
+                    'email': arguments['email'],
+                    'displayName': this.userName,
+                    'Dob': selectedDate,
+                  });
+                } catch (error) {
+                  switch (error.code) {
+                    case "ERROR_EMAIL_ALREADY_IN_USE":
+                      {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                content: Container(
+                                  child: Text(errorMsg),
+                                ),
+                              );
+                            });
+                      }
+                      break;
+                    case "ERROR_WEAK_PASSWORD":
+                      {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                content: Container(
+                                  child: Text(errorMsg),
+                                ),
+                              );
+                            });
+                      }
+                      break;
+                    default:
+                      {
+                        print('error');
+                      }
+                  }
+                }
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
@@ -157,7 +221,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
-      onSaved: (newValue) => firstName = newValue,
+      onSaved: (newValue) => userName = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
@@ -172,6 +236,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "User Name *",
         labelStyle: TextStyle(
           color: kGrey,
@@ -194,40 +260,55 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       doBText = "Enter Date of birth";
     }
 
-    return OutlineButton(
-      padding: EdgeInsets.only(top: 18, left: 45, right: 20, bottom: 18),
-      onPressed: () => _selectDate(context),
-      child: Stack(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.centerRight,
-            child: Icon(
-              Icons.calendar_today,
-              color: kTextColor,
-              size: 20,
-            ),
+    return DecoratedBox(
+      decoration: ShapeDecoration(
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(50.0),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              doBText,
-              style: TextStyle(
-                fontSize: 16,
-                //fontWeight: FontWeight.bold,
-                color: kTextColor,
+          color: Colors.white),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+            buttonTheme: ButtonTheme.of(context).copyWith(
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap)),
+        child: OutlineButton(
+          color: Colors.white,
+          padding: EdgeInsets.only(top: 18, left: 45, right: 20, bottom: 18),
+          onPressed: () => _selectDate(context),
+          child: Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  Icons.calendar_today,
+                  color: kTextColor,
+                  size: 20,
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-          )
-        ],
-      ),
-      borderSide: new BorderSide(color: kGrey),
-      shape: new RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(50.0),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  doBText,
+                  style: TextStyle(
+                    fontSize: 16,
+                    //fontWeight: FontWeight.bold,
+                    color: kTextColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )
+            ],
+          ),
+          borderSide: new BorderSide(color: kGrey),
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(50.0),
+          ),
+        ),
       ),
     );
   }
 }
+
+class UserUpdateInfo {}
 
 class Uploader extends StatefulWidget {
   final File file;

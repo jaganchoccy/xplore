@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xploreDev/screens/Profile_screen/profile_screen.dart';
-import 'package:xploreDev/screens/Events/event_screen.dart';
+import 'package:xploreunitrix/constants.dart';
+import 'package:xploreunitrix/screens/Profile_screen/profile_screen.dart';
+import 'package:xploreunitrix/screens/Events/event_screen.dart';
+import 'package:xploreunitrix/screens/Trip/trip_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/HomeScreen";
@@ -12,8 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedItem = 0;
   var _pages = [
     EventScreen(),
-    ProfileScreen(),
+    TripScreen(),
     EventScreen(),
+    TripScreen(),
     ProfileScreen(),
     EventScreen(),
   ];
@@ -37,20 +40,20 @@ class _HomeScreenState extends State<HomeScreen> {
           unselectedItemColor: Colors.grey[600],
           selectedItemColor: Colors.grey[600],
           showUnselectedLabels: true,
-          selectedIconTheme: IconThemeData(color: Colors.teal[700]),
+          selectedIconTheme: IconThemeData(color: kPrimaryColor),
           unselectedIconTheme: IconThemeData(color: Colors.grey[600]),
           items: [
             BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard),
+              title: Text('Feed', style: TextStyle(fontFamily: 'Muli')),
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.developer_board),
-              title: Text('Events', style: TextStyle(fontFamily: 'Muli')),
+              title: Text('Trip', style: TextStyle(fontFamily: 'Muli')),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.monochrome_photos),
               title: Text('Post', style: TextStyle(fontFamily: 'Muli')),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              title: Text('Feed', style: TextStyle(fontFamily: 'Muli')),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
