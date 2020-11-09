@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/form_error.dart';
@@ -18,6 +20,9 @@ class _SignFormState extends State<SignForm> {
   String password;
   bool remember = false;
   final List<String> errors = [];
+  bool _loading = false;
+  bool _autoValidate = false;
+  String errorMsg = "";
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -70,11 +75,60 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Login..",
-            press: () {
+            press: () async {
+              Navigator.pushNamed(context, HomeScreen.routeName);
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, HomeScreen.routeName);
+
+                try {
+                  UserCredential user = await FirebaseAuth.instance
+                      .signInWithEmailAndPassword(
+                          email: this.email, password: this.password);
+                  // if all are valid then go to success screen
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                } catch (error) {
+                  switch (error.code) {
+                    case "ERROR_USER_NOT_FOUND":
+                      {
+                        print(
+                            "There is no user with such entries. Please try again.");
+
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                content: Container(
+                                  child: Text(errorMsg),
+                                ),
+                              );
+                            });
+                      }
+                      break;
+                    case "ERROR_WRONG_PASSWORD":
+                      {
+                        print("Password doesn\'t match your email.");
+
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                content: Container(
+                                  child: Text(errorMsg),
+                                ),
+                              );
+                            });
+                      }
+                      break;
+                    default:
+                      {
+                        print('error...... $error');
+                      }
+                  }
+                }
+              } else {
+                setState(() {
+                  _autoValidate = true;
+                });
               }
             },
           ),
@@ -106,6 +160,8 @@ class _SignFormState extends State<SignForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Password",
         labelStyle: TextStyle(
           color: kGrey,
@@ -142,6 +198,8 @@ class _SignFormState extends State<SignForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Email",
         labelStyle: TextStyle(
           color: kGrey,

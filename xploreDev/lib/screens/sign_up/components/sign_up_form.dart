@@ -54,10 +54,11 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(
-                  context,
-                  CompleteProfileScreen.routeName,
-                );
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName,
+                    arguments: {
+                      "email": this.email,
+                      "password": this.password
+                    });
               }
             },
           ),
@@ -89,6 +90,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Confirm Password",
         labelStyle: TextStyle(
           color: kGrey,
@@ -125,6 +128,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Password",
         labelStyle: TextStyle(
           color: kGrey,
@@ -161,6 +166,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Email",
         labelStyle: TextStyle(
           color: kGrey,

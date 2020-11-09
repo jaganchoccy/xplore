@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xploreDev/screens/sign_up/components/sign_up_form.dart';
+import 'package:xploreunitrix/screens/sign_up/components/sign_up_form.dart';
 
 import 'components/body.dart';
 
@@ -12,7 +12,7 @@ class CompleteProfileScreen extends StatelessWidget {
     //print(args);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text(''),
       ),
       body: Body(),
     );
