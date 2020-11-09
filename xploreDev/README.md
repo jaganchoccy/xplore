@@ -6,6 +6,9 @@ A new Flutter project.
 
 ## Run Command 
 
+# Figma url
+## https://www.figma.com/file/y8zC4BxCLCwm44loKy1Wa8/xplore?node-id=0%3A1
+
 ## flutter run --enable-software-rendering
 
 This project is a starting point for a Flutter application.
