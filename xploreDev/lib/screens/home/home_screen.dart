@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xploreunitrix/constants.dart';
 import 'package:xploreunitrix/screens/Profile_screen/profile_screen.dart';
-import 'package:xploreunitrix/screens/Events/event_screen.dart';
-import 'package:xploreunitrix/screens/Trip/trip_screen.dart';
+import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/HomeScreen";
@@ -13,12 +12,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedItem = 0;
   var _pages = [
-    EventScreen(),
+    ProfileScreen(),
     TripScreen(),
-    EventScreen(),
+    TripScreen(),
     TripScreen(),
     ProfileScreen(),
-    EventScreen(),
   ];
 
   @override
@@ -45,23 +43,38 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
-              title: Text('Feed', style: TextStyle(fontFamily: 'Muli')),
+              // ignore: deprecated_member_use
+              title: Text(
+                'Feed',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.developer_board),
-              title: Text('Trip', style: TextStyle(fontFamily: 'Muli')),
+              // ignore: deprecated_member_use
+              title: Text(
+                'Trip',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.monochrome_photos),
-              title: Text('Post', style: TextStyle(fontFamily: 'Muli')),
+              // ignore: deprecated_member_use
+              title: Text(
+                'Post',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
-              title: Text('Activity', style: TextStyle(fontFamily: 'Muli')),
+              // ignore: deprecated_member_use
+              title: Text(
+                'Activity',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.panorama_fish_eye),
-              title: Text('Profile', style: TextStyle(fontFamily: 'Muli')),
+              // ignore: deprecated_member_use
+              title: Text(
+                'Profile',
+              ),
             )
           ],
           onTap: (int index) {
