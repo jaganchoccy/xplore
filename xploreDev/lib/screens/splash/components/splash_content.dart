@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -15,7 +16,7 @@ class SplashContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Spacer(),
+        Spacer(flex: 4),
         Text(
           "Explore",
           style: TextStyle(
@@ -28,11 +29,11 @@ class SplashContent extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
         ),
-        Spacer(flex: 2),
-        Image.asset(
+        Spacer(flex: 3),
+        SvgPicture.asset(
           image,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
+          height: SizeConfig.screenHeight * 0.3, //40%
+          width: 100,
         ),
       ],
     );

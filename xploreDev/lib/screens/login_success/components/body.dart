@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../components/default_button.dart';
 import '../../../screens/sign_in/sign_in_screen.dart';
 import '../../../size_config.dart';
@@ -9,9 +10,10 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: SizeConfig.screenHeight * 0.2),
-        Image.asset(
-          "assets/images/success.png",
+        SvgPicture.asset(
+          "assets/images/success.svg",
           height: SizeConfig.screenHeight * 0.3, //40%
+          width: 100,
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.1),
         Align(

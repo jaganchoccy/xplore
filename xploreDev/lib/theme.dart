@@ -4,7 +4,7 @@ import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: KBackGroundColor,
     fontFamily: "Muli",
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
@@ -40,7 +40,7 @@ TextTheme textTheme() {
 
 AppBarTheme appBarTheme() {
   return AppBarTheme(
-    color: Colors.white,
+    color: KBackGroundColor,
     elevation: 0,
     brightness: Brightness.light,
     iconTheme: IconThemeData(color: Colors.black),

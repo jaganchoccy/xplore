@@ -13,10 +13,11 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  final _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String email;
   String password;
-  String conform_password;
+  // ignore: non_constant_identifier_names
+  String confirmPassword;
   bool remember = false;
   final List<String> errors = [];
 
@@ -53,7 +54,11 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName,
+                    arguments: {
+                      "email": this.email,
+                      "password": this.password
+                    });
               }
             },
           ),
@@ -65,14 +70,14 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => confirmPassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && password == confirmPassword) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
+        confirmPassword = value;
       },
       validator: (value) {
         if (value.isEmpty) {
@@ -85,6 +90,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Confirm Password",
         labelStyle: TextStyle(
           color: kGrey,
@@ -121,6 +128,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Password",
         labelStyle: TextStyle(
           color: kGrey,
@@ -157,6 +166,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Email",
         labelStyle: TextStyle(
           color: kGrey,
