@@ -99,8 +99,8 @@ class _TripScreenState extends State<TripScreen> {
                           print('closed');
                         },
                         child: Container(
-                          margin: EdgeInsets.only(
-                              left: 3, right: 3, bottom: 10),
+                          margin:
+                              EdgeInsets.only(left: 3, right: 3, bottom: 10),
                           decoration: BoxDecoration(
                             color: const Color(0xffffffff),
                             boxShadow: [
@@ -239,11 +239,8 @@ class _TripScreenState extends State<TripScreen> {
                                         child: Container(
                                             child: Row(
                                           children: [
-                                            Icon(
-                                              Icons.favorite,
-                                              size: 18,
-                                              color: Colors.red,
-                                            ),
+                                            Icon(Icons.favorite,
+                                                size: 18, color: KRed),
                                             SizedBox(width: 4),
                                             Text(
                                               '211',
@@ -422,11 +419,8 @@ class _TripScreenState extends State<TripScreen> {
                                     child: Container(
                                         child: Row(
                                       children: [
-                                        Icon(
-                                          Icons.favorite,
-                                          size: 22,
-                                          color: Colors.red,
-                                        ),
+                                        Icon(Icons.favorite,
+                                            size: 22, color: KRed),
                                         SizedBox(width: 4),
                                         Text(
                                           '21K',

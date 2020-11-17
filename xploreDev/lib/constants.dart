@@ -5,6 +5,7 @@ const kPrimaryColor = Color.fromARGB(0xFF, 0, 112, 74);
 const kPrimaryLightColor = Color.fromARGB(0xFF, 0, 112, 74);
 const KBackGroundColor = Color.fromARGB(0xFF, 247, 247, 247);
 const kGrey = Color(0xFF757575);
+const KRed = Color.fromARGB(0xFF, 222, 38, 32);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:xploreunitrix/constants.dart';
 import 'package:xploreunitrix/screens/Profile_screen/profile_screen.dart';
 import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
+import 'package:xploreunitrix/screens/Feeds/feed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/HomeScreen";
@@ -12,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedItem = 0;
   var _pages = [
-    ProfileScreen(),
+    FeedScreen(),
     TripScreen(),
     TripScreen(),
     TripScreen(),
