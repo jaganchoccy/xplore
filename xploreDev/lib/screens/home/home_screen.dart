@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     TripScreen(),
     TripScreen(),
     TripScreen(),
-    ProfileScreen(),
+    ProfilePage(),
   ];
 
   @override
@@ -44,39 +44,24 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Feed',
-              ),
+              label: 'Feed',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.developer_board),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Trip',
-              ),
+              label: 'Trip',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.monochrome_photos),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Post',
-              ),
+              label: 'Post',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.local_offer_rounded),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Credits',
-              ),
+              label: 'Credits',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.panorama_fish_eye),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Profile',
-              ),
-            )
+              label: 'Profile',
+            ),
           ],
           onTap: (int index) {
             print(_selectedItem);
