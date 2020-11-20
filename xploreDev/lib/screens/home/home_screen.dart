@@ -64,10 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
+              icon: Icon(Icons.local_offer_rounded),
               // ignore: deprecated_member_use
               title: Text(
-                'Activity',
+                'Credits',
               ),
             ),
             BottomNavigationBarItem(
