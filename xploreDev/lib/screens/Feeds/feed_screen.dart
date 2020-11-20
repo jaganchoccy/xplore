@@ -123,13 +123,6 @@ class _FeedScreenState extends State<FeedScreen> {
                                             width: 1.5,
                                           ),
                                           color: const Color(0xffffffff),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: const Color(0x29000000),
-                                              offset: Offset(0, 2),
-                                              blurRadius: 6,
-                                            ),
-                                          ],
                                         ),
                                         width: 45.0,
                                         height: 45.0,
@@ -184,20 +177,20 @@ class _FeedScreenState extends State<FeedScreen> {
                                       right: 2.0,
                                       top: 1.0,
                                       child: Container(
-                                        padding: EdgeInsets.all(10),
+                                        padding: EdgeInsets.all(6),
                                         child: SizedBox(
                                           height: 28,
                                           child: OutlineButton(
                                             shape: new RoundedRectangleBorder(
                                                 borderRadius:
                                                     new BorderRadius.circular(
-                                                        5.0)),
+                                                        15)),
                                             textColor: kPrimaryColor,
                                             child: Text(
                                               'Follow',
                                               style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
                                                 color: kPrimaryColor,
                                                 letterSpacing: 0,
                                               ),
@@ -235,10 +228,10 @@ class _FeedScreenState extends State<FeedScreen> {
                                 padding: EdgeInsets.only(
                                     top: 0, right: 8, left: 8, bottom: 8),
                                 child: Text(
-                                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout dummy text of the printing and typesetting industry.',
+                                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking typesetting industry.',
                                   style: TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w300,
                                     color: Colors.black,
                                     letterSpacing: 0,
                                   ),
@@ -246,21 +239,23 @@ class _FeedScreenState extends State<FeedScreen> {
                               ),
                               Expanded(
                                 child: Container(
-                                  padding: EdgeInsets.only(
-                                      top: 0, right: 8, left: 8, bottom: 0),
+                                  padding: EdgeInsets.zero,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(12)),
+                                        BorderRadius.all(Radius.circular(6)),
                                   ),
                                   child: ClipRRect(
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(12)),
-                                    child: FadeInImage.memoryNetwork(
-                                      placeholder: kTransparentImage,
-                                      image: imageList[index],
-                                      fit: BoxFit.cover,
+                                        BorderRadius.all(Radius.circular(6)),
+                                    child: InteractiveViewer(
+                                      maxScale: 5.0,
+                                      child: FadeInImage.memoryNetwork(
+                                        placeholder: kTransparentImage,
+                                        image: imageList[index],
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -317,7 +312,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                     Spacer(),
                                     IconButton(
                                         color: kPrimaryColor,
-                                        icon: Icon(Icons.archive),
+                                        icon: Icon(Icons.bookmark_outlined),
                                         onPressed: () {}),
                                   ],
                                 ),

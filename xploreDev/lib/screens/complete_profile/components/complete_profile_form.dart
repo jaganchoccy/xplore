@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:xploreunitrix/theme.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
@@ -24,11 +25,18 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime(2015, 8),
-      lastDate: DateTime(2101),
-    );
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        //textDirection: TextDirection.rtl,
+        lastDate: DateTime(2101),
+        helpText: 'Select DOB',
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData(backgroundColor: Colors.red),
+            child: child,
+          );
+        });
     if (picked != null && picked != selectedDate)
       setState(() {
         selectedDate = picked;
