@@ -264,13 +264,15 @@ class _FeedScreenState extends State<FeedScreen> {
                                 child: Row(
                                   children: [
                                     IconButton(
+                                        constraints: BoxConstraints(),
+                                        padding: EdgeInsets.zero,
                                         color: KRed,
                                         icon: Icon(
                                           Icons.favorite,
                                           size: 22,
                                         ),
-                                        onPressed: () {}),
-                                    SizedBox(width: 0),
+                                        onPressed: () {}),                                    
+                                        SizedBox(width: 5),
                                     Text(
                                       '21K',
                                       style: TextStyle(
@@ -280,13 +282,17 @@ class _FeedScreenState extends State<FeedScreen> {
                                         color: Colors.black,
                                       ),
                                     ),
+                                    SizedBox(width: 15),
                                     IconButton(
+                                        constraints: BoxConstraints(),
+                                        padding: EdgeInsets.zero,
                                         color: Colors.grey[600],
                                         icon: Icon(
                                           Icons.speaker_notes,
                                           size: 22,
                                         ),
                                         onPressed: () {}),
+                                        SizedBox(width: 5),
                                     RichText(
                                       text: TextSpan(
                                         style:
