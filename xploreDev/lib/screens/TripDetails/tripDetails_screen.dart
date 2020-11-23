@@ -63,9 +63,8 @@ class _SilverAppBarWithTabBarState extends State<SilverAppBarWithTabBarScreen>
             title: Text(
               'Trips',
               style: TextStyle(
-                fontFamily: 'Two',
                 color: Colors.white,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 shadows: [
                   Shadow(
                       offset: Offset(5.0, 5.0),
@@ -208,7 +207,7 @@ Widget overView() {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 0, right: 15, left: 15, bottom: 10),          
+          padding: EdgeInsets.only(top: 0, right: 15, left: 15, bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -242,14 +241,14 @@ Widget overView() {
                                       color: KRed,
                                       icon: Icon(
                                         Icons.favorite,
-                                        size: 22,
+                                        size: 18,
                                       ),
                                       onPressed: () {})),
                               Container(
                                 child: Text(
                                   '219K',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w500,
                                     letterSpacing: 0,
                                     color: Colors.black,
@@ -271,14 +270,14 @@ Widget overView() {
                                       color: Colors.grey[600],
                                       icon: Icon(
                                         Icons.speaker_notes,
-                                        size: 22,
+                                        size: 18,
                                       ),
                                       onPressed: () {})),
                               Container(
                                   child: Text(
-                                '213',
+                                '21',
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 0,
                                   color: Colors.black,

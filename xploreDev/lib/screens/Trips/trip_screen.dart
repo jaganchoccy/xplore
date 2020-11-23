@@ -139,7 +139,7 @@ class _TripScreenState extends State<TripScreen> {
                                   Container(
                                     color: Colors.white,
                                     padding: EdgeInsets.only(
-                                        top: 10, right: 5, left: 5, bottom: 5),
+                                        top: 10, right: 8, left: 8, bottom: 5),
                                     child: Text(
                                       'trip coimbatore to ooty, morning tea ride..#duke250',
                                       style: TextStyle(
@@ -151,6 +151,9 @@ class _TripScreenState extends State<TripScreen> {
                                     ),
                                   ),
                                   Container(
+                                    padding: EdgeInsets.only(
+                                      left: 4,
+                                    ),
                                     height: 40,
                                     width: double.infinity,
                                     decoration: BoxDecoration(
@@ -245,12 +248,12 @@ class _TripScreenState extends State<TripScreen> {
                                               children: [
                                                 Icon(
                                                   Icons.favorite,
-                                                  size: 18,
+                                                  size: 16,
                                                   color: KRed,
                                                 ),
                                                 SizedBox(width: 4),
                                                 Text(
-                                                  '211',
+                                                  '215',
                                                   style: TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
@@ -472,14 +475,14 @@ class _TripScreenState extends State<TripScreen> {
                                             children: [
                                               Icon(
                                                 Icons.favorite,
-                                                size: 22,
+                                                size: 18,
                                                 color: KRed,
                                               ),
                                               SizedBox(width: 4),
                                               Text(
                                                 '21K',
                                                 style: TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 12,
                                                   fontWeight: FontWeight.w500,
                                                   letterSpacing: 0,
                                                   color: Colors.black,
@@ -488,14 +491,14 @@ class _TripScreenState extends State<TripScreen> {
                                               SizedBox(width: 15),
                                               Icon(
                                                 Icons.speaker_notes,
-                                                size: 22,
+                                                size: 18,
                                                 color: Colors.grey[600],
                                               ),
                                               SizedBox(width: 4),
                                               Text(
                                                 '156',
                                                 style: TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 12,
                                                   fontWeight: FontWeight.w500,
                                                   letterSpacing: 0,
                                                   color: Colors.black,

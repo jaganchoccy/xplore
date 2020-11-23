@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xploreunitrix/constants.dart';
+import 'package:xploreunitrix/screens/Post/post_screen.dart';
 import 'package:xploreunitrix/screens/Profile_screen/profile_screen.dart';
 import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
 import 'package:xploreunitrix/screens/Feeds/feed_screen.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var _pages = [
     FeedScreen(),
     TripScreen(),
-    TripScreen(),
+    PostScreen(),
     TripScreen(),
     ProfilePage(),
   ];
@@ -64,9 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
           onTap: (int index) {
-            print(_selectedItem);
             setState(() {
               _selectedItem = index;
+              print(_selectedItem);
             });
           },
         ),
