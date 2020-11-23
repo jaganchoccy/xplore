@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xploreunitrix/constants.dart';
+import 'package:xploreunitrix/screens/Post/post_screen.dart';
 import 'package:xploreunitrix/screens/Profile_screen/profile_screen.dart';
 import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
 import 'package:xploreunitrix/screens/Feeds/feed_screen.dart';
@@ -15,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   var _pages = [
     FeedScreen(),
     TripScreen(),
+    PostScreen(),
     TripScreen(),
-    TripScreen(),
-    ProfileScreen(),
+    ProfilePage(),
   ];
 
   @override
@@ -44,44 +45,29 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Feed',
-              ),
+              label: 'Feed',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.developer_board),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Trip',
-              ),
+              label: 'Trip',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.monochrome_photos),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Post',
-              ),
+              label: 'Post',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.local_offer_rounded),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Credits',
-              ),
+              label: 'Credits',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.panorama_fish_eye),
-              // ignore: deprecated_member_use
-              title: Text(
-                'Profile',
-              ),
-            )
+              label: 'Profile',
+            ),
           ],
           onTap: (int index) {
-            print(_selectedItem);
             setState(() {
               _selectedItem = index;
+              print(_selectedItem);
             });
           },
         ),
