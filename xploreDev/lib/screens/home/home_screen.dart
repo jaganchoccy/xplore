@@ -28,11 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
       onWillPop: () async {
         if (_selectedIndex == 0) {
           final isFirstRouteInCurrentTab =
-              !await _navigatorKeys[_selectedIndex].currentState.maybePop();
-          print(isFirstRouteInCurrentTab.toString());
-          // let system handle back button if we're on the first route
+              !await _navigatorKeys[_selectedIndex].currentState.maybePop();          
           return isFirstRouteInCurrentTab;
         } else {
+          setState(() {
+            _selectedIndex = 0;
+          });
           return false;
         }
       },
