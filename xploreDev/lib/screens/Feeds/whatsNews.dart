@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:xploreunitrix/constants.dart';
+import 'package:xploreDev/constants.dart';
 
 class WhatsNew extends StatelessWidget {
   const WhatsNew({Key key}) : super(key: key);
