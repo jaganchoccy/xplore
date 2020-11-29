@@ -7,7 +7,7 @@ class User {
   final String url;
   final String email;
   final String bio;
-  final String dob;
+  final DateTime dob;
 
   User({
     this.id,
@@ -24,10 +24,10 @@ class User {
       id: doc.id,
       email: doc['email'],
       username: doc['username'],
-      url: doc['photoUrl'],
-      profileName: doc['displayName'],
+      url: doc['url'],
+      profileName: doc['profileName'],
       bio: doc['bio'],
-      dob: doc['dob'],
+      dob: doc['dob'].toDate(),
     );
   }
 }

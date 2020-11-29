@@ -76,7 +76,7 @@ class WhatsNew extends StatelessWidget {
                     Container(
                       child: Positioned(
                         right: 30,
-                        bottom: 16,
+                        bottom: 24,
                         child: FloatingActionButton(
                           heroTag: null,
                           onPressed: () {},
