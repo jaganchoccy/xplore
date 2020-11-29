@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/Feeds/feed_screen.dart';
-import 'package:xploreunitrix/screens/Post_Page/Post_create_Screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/Feeds/feed_screen.dart';
+import 'package:xploreDev/screens/Post_Page/Post_create_Screen.dart';
 
 import '../../size_config.dart';
 
@@ -77,30 +77,6 @@ class PostScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            bottom: 10,
-            right: 0,
-            left: 0,
-            child: Container(
-              child: FloatingActionButton(
-                heroTag: null,
-                onPressed: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => FeedScreen(),
-                    ),
-                  );
-                },
-                backgroundColor: kPrimaryColor,
-                child: Icon(
-                  Icons.close,
-                  size: 20,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          )
         ]),
       ),
     );

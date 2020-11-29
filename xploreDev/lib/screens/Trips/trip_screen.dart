@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/TripDetails/tripDetails_screen.dart';
-import 'package:xploreunitrix/screens/tripPost/tripPost_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/TripDetails/tripDetails_screen.dart';
+import 'package:xploreDev/screens/tripPost/tripPost_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:transparent_image/transparent_image.dart';
 

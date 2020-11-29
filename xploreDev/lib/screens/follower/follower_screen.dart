@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/following/following_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/following/following_screen.dart';
 
 class FollowersPage extends StatelessWidget {
   final int data;

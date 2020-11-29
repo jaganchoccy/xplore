@@ -76,7 +76,9 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Login..",
             press: () async {
-              Navigator.pushNamed(context, HomeScreen.routeName);
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => HomeScreen()));
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
 
@@ -85,7 +87,9 @@ class _SignFormState extends State<SignForm> {
                       .signInWithEmailAndPassword(
                           email: this.email, password: this.password);
                   // if all are valid then go to success screen
-                  Navigator.pushNamed(context, HomeScreen.routeName);
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => HomeScreen()));
                 } catch (error) {
                   switch (error.code) {
                     case "ERROR_USER_NOT_FOUND":

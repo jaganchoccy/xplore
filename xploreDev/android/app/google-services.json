@@ -10,10 +10,18 @@
       "client_info": {
         "mobilesdk_app_id": "1:1027173012466:android:96e370f6c91b4066ff116b",
         "android_client_info": {
-          "package_name": "com.example.xploreunitrix"
+          "package_name": "com.example.xploreDev"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1027173012466-no5kimdlt0mp1p17aof5h3ku2vtmps0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xploreDev",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
         {
           "client_id": "1027173012466-umntmrp9m5hml2s8tei5llff9fa9shmv.apps.googleusercontent.com",
           "client_type": 3
