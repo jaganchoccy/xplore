@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icon_shadow/icon_shadow.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/Trips/trip_screen.dart';
 import '../../size_config.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -63,9 +63,8 @@ class _SilverAppBarWithTabBarState extends State<SilverAppBarWithTabBarScreen>
             title: Text(
               'Trips',
               style: TextStyle(
-                fontFamily: 'Two',
                 color: Colors.white,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 shadows: [
                   Shadow(
                       offset: Offset(5.0, 5.0),
@@ -90,7 +89,18 @@ class _SilverAppBarWithTabBarState extends State<SilverAppBarWithTabBarScreen>
                     bottom: 0),
                 Positioned(
                   child: Container(
-                    height: 15,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          top: 15.0, left: 190.0, right: 190.0, bottom: 0.0),
+                      child: Container(
+                        height: 10,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[400],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                      ),
+                    ),
+                    height: 20,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -202,7 +212,7 @@ Widget overView() {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     color: Colors.white,
@@ -216,47 +226,71 @@ Widget overView() {
                     ),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                          color: KRed,
-                          icon: Icon(
-                            Icons.favorite,
-                            size: 22,
-                          ),
-                          onPressed: () {}),
-                      Text(
-                        '21K',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0,
-                          color: Colors.black,
-                        ),
-                      ),
-                      IconButton(
-                          color: Colors.grey[600],
-                          icon: Icon(
-                            Icons.speaker_notes,
-                            size: 22,
-                          ),
-                          onPressed: () {}),
-                      SizedBox(width: 0),
-                      Text(
-                        '21',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0,
-                          color: Colors.black,
-                        ),
-                      ),
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Container(
+                          margin: EdgeInsets.only(right: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.all(5.0),
+                                  child: IconButton(
+                                      constraints: BoxConstraints(),
+                                      padding: EdgeInsets.zero,
+                                      color: KRed,
+                                      icon: Icon(
+                                        Icons.favorite,
+                                        size: 18,
+                                      ),
+                                      onPressed: () {})),
+                              Container(
+                                child: Text(
+                                  '219K',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(right: 3.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.all(5.0),
+                                  child: IconButton(
+                                      constraints: BoxConstraints(),
+                                      padding: EdgeInsets.zero,
+                                      color: Colors.grey[600],
+                                      icon: Icon(
+                                        Icons.speaker_notes,
+                                        size: 18,
+                                      ),
+                                      onPressed: () {})),
+                              Container(
+                                  child: Text(
+                                '21',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0,
+                                  color: Colors.black,
+                                ),
+                              ))
+                            ],
+                          ))
                     ],
                   )
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 0.0, bottom: 0),
+                padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
                 child: Text(
                   'Lorem ipsum is a name for a common type of placeholder text. Also known as filler or dummy text, this is simply copy that serves to fill a space without actually saying anything meaningful. ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   style: TextStyle(fontSize: 15, color: Colors.grey[600]),

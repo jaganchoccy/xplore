@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/Feeds/whatsNews.dart';
-import 'package:xploreunitrix/screens/TripDetails/tripDetails_screen.dart';
-import 'package:xploreunitrix/screens/tripPost/tripPost_screen.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/Feeds/whatsNews.dart';
+import 'package:xploreDev/screens/search/search_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class FeedScreen extends StatefulWidget {
@@ -61,7 +59,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TripPostScreen(),
+                        builder: (context) => SearchScreen(),
                       ));
                 }),
             IconButton(
@@ -90,9 +88,10 @@ class _FeedScreenState extends State<FeedScreen> {
                     controller: _scrollController,
                     itemBuilder: (BuildContext ctxt, int index) {
                       return Container(
-                        margin: EdgeInsets.only(top: 6, left: 6, right: 6),
+                        margin: EdgeInsets.only(top: 6, left: 0.0, right: 0.0),
                         height: 500,
                         child: Card(
+                          margin: EdgeInsets.zero,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.0),
                           ),
@@ -103,6 +102,7 @@ class _FeedScreenState extends State<FeedScreen> {
                               Container(
                                 height: 50,
                                 margin: EdgeInsets.only(top: 4),
+                                padding: EdgeInsets.only(left: 4, right: 4),
                                 width: double.infinity,
                                 child: Stack(
                                   children: [
@@ -211,7 +211,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                 width: double.infinity,
                                 color: Colors.white,
                                 padding: EdgeInsets.only(
-                                    top: 5, right: 8, left: 8, bottom: 5),
+                                    top: 5, right: 12, left: 12, bottom: 5),
                                 child: Text(
                                   '#Ooty.',
                                   style: TextStyle(
@@ -226,7 +226,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                 width: double.infinity,
                                 color: Colors.white,
                                 padding: EdgeInsets.only(
-                                    top: 0, right: 8, left: 8, bottom: 8),
+                                    top: 0, right: 8, left: 12, bottom: 12),
                                 child: Text(
                                   'It is a long established fact that a reader will be distracted by the readable content of a page when looking typesetting industry.',
                                   style: TextStyle(
@@ -247,8 +247,6 @@ class _FeedScreenState extends State<FeedScreen> {
                                         BorderRadius.all(Radius.circular(6)),
                                   ),
                                   child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(6)),
                                     child: InteractiveViewer(
                                       maxScale: 5.0,
                                       child: FadeInImage.memoryNetwork(
@@ -261,32 +259,39 @@ class _FeedScreenState extends State<FeedScreen> {
                                 ),
                               ),
                               Container(
+                                padding: EdgeInsets.only(left: 12, right: 8),
                                 child: Row(
                                   children: [
                                     IconButton(
+                                        constraints: BoxConstraints(),
+                                        padding: EdgeInsets.zero,
                                         color: KRed,
                                         icon: Icon(
                                           Icons.favorite,
-                                          size: 22,
+                                          size: 18,
                                         ),
                                         onPressed: () {}),
-                                    SizedBox(width: 0),
+                                    SizedBox(width: 3),
                                     Text(
                                       '21K',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.w500,
                                         letterSpacing: 0,
                                         color: Colors.black,
                                       ),
                                     ),
+                                    SizedBox(width: 15),
                                     IconButton(
+                                        constraints: BoxConstraints(),
+                                        padding: EdgeInsets.zero,
                                         color: Colors.grey[600],
                                         icon: Icon(
                                           Icons.speaker_notes,
-                                          size: 22,
+                                          size: 18,
                                         ),
                                         onPressed: () {}),
+                                    SizedBox(width: 5),
                                     RichText(
                                       text: TextSpan(
                                         style:
@@ -295,12 +300,12 @@ class _FeedScreenState extends State<FeedScreen> {
                                           TextSpan(
                                               text: '152',
                                               style: TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 12,
                                                   fontWeight: FontWeight.w500)),
                                           TextSpan(
                                             text: ' Comments',
                                             style: TextStyle(
-                                              fontSize: 15,
+                                              fontSize: 12,
                                               fontWeight: FontWeight.w400,
                                               letterSpacing: 0,
                                               color: Colors.grey[600],
