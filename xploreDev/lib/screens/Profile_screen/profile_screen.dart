@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:xploreunitrix/screens/follower/follower_screen.dart';
+import 'package:xploreDev/screens/follower/follower_screen.dart';
 import './dummy.dart';
 
 Widget _buildUserProfileImg() {

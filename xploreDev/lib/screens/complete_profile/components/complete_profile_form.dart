@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:xploreunitrix/theme.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
@@ -21,6 +21,8 @@ class CompleteProfileForm extends StatefulWidget {
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   DateTime selectedDate = DateTime.now();
   DateTime selectedDateInit = DateTime.now();
+  final DateTime timestamp = new DateTime.now();
+
   String errorMsg = "";
 
   Future<Null> _selectDate(BuildContext context) async {
@@ -173,16 +175,22 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                   var newUser = userCredential.user;
 
                   /// Add the first and last name to the FirebaseUser
-                  String newDisplayName = '$userName';
+                  String newDisplayName = this.userName;
                   await newUser
                       .updateProfile(displayName: newDisplayName)
                       .catchError((error) => print(error));
 
                   final databaseReference = FirebaseFirestore.instance;
-                  databaseReference.collection('users').doc().set({
+                  databaseReference.collection('ExploreUsers').doc().set({
                     'email': arguments['email'],
-                    'displayName': this.userName,
+                    'username': this.userName,
                     'Dob': selectedDate,
+                    "id": "",
+                    "url": "",
+                    "profileName": '',
+                    "bio": '',
+                    "timestamp": timestamp,
+                    "dob": selectedDate
                   });
                 } catch (error) {
                   switch (error.code) {
@@ -214,7 +222,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                       break;
                     default:
                       {
-                        print('error');
+                        print('error wt');
                       }
                   }
                 }

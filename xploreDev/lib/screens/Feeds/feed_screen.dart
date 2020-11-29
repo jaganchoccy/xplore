@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/Feeds/whatsNews.dart';
-import 'package:xploreunitrix/screens/tripPost/tripPost_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/Feeds/whatsNews.dart';
+import 'package:xploreDev/screens/search/search_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class FeedScreen extends StatefulWidget {
@@ -59,7 +59,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TripPostScreen(),
+                        builder: (context) => SearchScreen(),
                       ));
                 }),
             IconButton(

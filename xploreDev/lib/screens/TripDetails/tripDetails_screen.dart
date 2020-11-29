@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icon_shadow/icon_shadow.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/Trips/trip_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/Trips/trip_screen.dart';
 import '../../size_config.dart';
 import 'package:transparent_image/transparent_image.dart';
 
