@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'components/Upload_gallery.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/complete_profile/components/profilePic.dart';
 import 'screens/forgot_password/forgot_password_screen.dart';
@@ -19,4 +20,5 @@ final Map<String, WidgetBuilder> routes = {
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   ImageCapture.routeName: (context) => ImageCapture(),
+  UploadGallery.routeName: (context) => UploadGallery(),
 };
