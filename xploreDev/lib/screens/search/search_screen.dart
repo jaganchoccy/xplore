@@ -35,7 +35,14 @@ class _SearchScreenState extends State<SearchScreen>
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       elevation: 6.0,
-      leading: Icon(Icons.arrow_back, color: Colors.black),
+      leading: IconButton(
+        highlightColor: Colors.white,
+        splashColor: Colors.white,
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(Icons.arrow_back, color: Colors.black),
+      ),
       backgroundColor: Colors.white,
       title: TextFormField(
         style: TextStyle(
@@ -43,15 +50,17 @@ class _SearchScreenState extends State<SearchScreen>
         ),
         controller: searchTextEditingController,
         decoration: InputDecoration(
+          contentPadding: EdgeInsetsDirectional.only(top: 12.0, start: 0.0),
           hintText: "Search here...",
           hintStyle: TextStyle(color: Colors.grey),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
+            borderSide: BorderSide(color: Colors.white),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
           filled: true,
+          fillColor: Colors.white,
           suffixIcon: IconButton(
             icon: Icon(Icons.clear),
             color: Colors.grey,
@@ -65,7 +74,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   displayNoUser() {
     return Container(
-      child: Text('no search found'),
+      child: Center(child: Text('no search found')),
     );
   }
 
@@ -81,7 +90,6 @@ class _SearchScreenState extends State<SearchScreen>
               ),
             );
           }
-          print('asd');
 
           List<UserResult> searchUserResult = [];
           dataSnapshot.data.docs.forEach((document) {

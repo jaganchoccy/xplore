@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:xploreDev/components/Upload_gallery.dart';
 import 'package:xploreDev/constants.dart';
 import 'package:xploreDev/screens/Feeds/feed_screen.dart';
 import 'package:xploreDev/screens/Post_Page/Post_create_Screen.dart';
@@ -24,22 +25,32 @@ class PostScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Column(children: [
-                        SvgPicture.asset(
-                          'assets/images/nature.svg',
-                          height: 100, //40%
-                          width: 100,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
-                            'Create Trip',
-                            style: TextStyle(
-                              color: Colors.black,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PostCreateScreen(),
+                            ),
+                          );
+                        },
+                        child: Column(children: [
+                          SvgPicture.asset(
+                            'assets/images/nature.svg',
+                            height: 100, //40%
+                            width: 100,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Text(
+                              'Create Trip',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                      ]),
+                        ]),
+                      ),
                       Container(
                         color: Colors.black38,
                         height: 70,
