@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/constants.dart';
+import 'package:xploreDev/constants.dart';
 import '../../size_config.dart';
 
 class EventScreen extends StatefulWidget {

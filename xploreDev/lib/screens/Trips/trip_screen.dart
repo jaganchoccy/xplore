@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/constants.dart';
-import 'package:xploreunitrix/screens/TripDetails/tripDetails_screen.dart';
-import 'package:xploreunitrix/screens/tripPost/tripPost_screen.dart';
+import 'package:xploreDev/constants.dart';
+import 'package:xploreDev/screens/TripDetails/tripDetails_screen.dart';
+import 'package:xploreDev/screens/tripPost/tripPost_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -154,7 +154,7 @@ class _TripScreenState extends State<TripScreen> {
                                     padding: EdgeInsets.only(
                                       left: 4,
                                     ),
-                                    height: 40,
+                                    height: 42,
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
@@ -214,28 +214,24 @@ class _TripScreenState extends State<TripScreen> {
                                                   color: Colors.black,
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 2),
-                                                child: Row(
-                                                  children: <Widget>[
-                                                    Icon(
-                                                      Icons.place,
-                                                      size: 11,
+                                              Row(
+                                                children: <Widget>[
+                                                  Icon(
+                                                    Icons.place,
+                                                    size: 11,
+                                                    color: Colors.grey[600],
+                                                  ),
+                                                  Text(
+                                                    'Coimbatore',
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight:
+                                                          FontWeight.normal,
                                                       color: Colors.grey[600],
+                                                      letterSpacing: 0,
                                                     ),
-                                                    Text(
-                                                      'Coimbatore',
-                                                      style: TextStyle(
-                                                        fontSize: 11,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color: Colors.grey[600],
-                                                        letterSpacing: 0,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ],
                                           ),

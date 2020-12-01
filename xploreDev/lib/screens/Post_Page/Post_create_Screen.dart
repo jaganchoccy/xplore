@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xploreDev/components/Upload_gallery.dart';
 
 class PostCreateScreen extends StatefulWidget {
   PostCreateScreen({Key key}) : super(key: key);
@@ -13,7 +14,16 @@ class _PostCreateScreenState extends State<PostCreateScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          child: Text('post create'),
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 250,
+                child: UploadGallery(),
+              ),
+              Text('dasd'),
+            ],
+          ),
         ),
       ),
     );

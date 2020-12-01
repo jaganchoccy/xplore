@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xploreunitrix/screens/sign_up/components/sign_up_form.dart';
+import 'package:xploreDev/screens/sign_up/components/sign_up_form.dart';
 
 import 'components/body.dart';
 

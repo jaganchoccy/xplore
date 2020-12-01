@@ -1,4 +1,4 @@
-package com.example.xploreunitrix
+package com.example.xploreDev
 
 import io.flutter.embedding.android.FlutterActivity
 
